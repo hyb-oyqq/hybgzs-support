@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:authjs.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(find E:next-welfare.hybchatapi -name *.env* -type f)",
+      "Bash(grep -r \"linuxdo\\\\|LinuxDo\" E:next-welfare.hybchatapi --include=*.ts --include=*.tsx -n)",
+      "Bash(find E:next-welfare.hybchatapi -name *.example -o -name .env.example -o -name .env.*.example)",
+      "Read(//c/Users/15123/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/**)",
+      "Bash(python scripts/search.py \"support ticket system minimal sophisticated dark light premium Linear Vercel dashboard\" --design-system -p \"黑与白支持\")",
+      "Bash(python scripts/search.py \"sophisticated blue support ticket clean\" --domain color -n 10)",
+      "Bash(python scripts/search.py \"minimal clean premium dashboard\" --domain style -n 8)",
+      "Bash(python scripts/search.py \"dashboard admin card table\" --stack shadcn)",
+      "Bash(npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(mv CLAUDE.md /tmp/CLAUDE.md.bak)",
+      "Bash(cd:*)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest init -y --style new-york)",
+      "Bash(npx shadcn@latest init -y)",
+      "Bash(npx shadcn@latest init --defaults)"
+    ]
+  }
+}
