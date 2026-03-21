@@ -18,6 +18,7 @@ import { PRIORITY_LABELS } from "@/lib/constants"
 import { createTicket } from "@/actions/ticket.actions"
 import { getActiveCategories } from "@/actions/category.actions"
 import { toast } from "sonner"
+import { Send } from "lucide-react"
 import type { Priority } from "@/generated/prisma/enums"
 
 interface CategoryItem {
@@ -63,12 +64,16 @@ export function TicketForm() {
   }
 
   return (
-    <Card>
+    <Card className="rounded-xl">
       <CardHeader>
-        <CardTitle>新建工单</CardTitle>
+        <CardTitle className="flex items-center gap-2.5">
+          <div className="w-1.5 h-5 rounded-full bg-primary" />
+          新建工单
+        </CardTitle>
+        <p className="text-sm text-muted-foreground">请详细描述你遇到的问题，以便我们快速为你解决</p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="title">标题</Label>
             <Input
@@ -76,6 +81,7 @@ export function TicketForm() {
               placeholder="简要描述你的问题"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              className="rounded-xl"
               required
             />
           </div>
@@ -87,6 +93,7 @@ export function TicketForm() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={6}
+              className="rounded-xl"
               required
             />
           </div>
@@ -94,10 +101,10 @@ export function TicketForm() {
             <div className="space-y-2">
               <Label>优先级</Label>
               <Select value={priority} onValueChange={(v) => v && setPriority(v as Priority)}>
-                <SelectTrigger>
+                <SelectTrigger className="rounded-xl">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="rounded-xl">
                   {(Object.keys(PRIORITY_LABELS) as Priority[]).map((p) => (
                     <SelectItem key={p} value={p}>
                       {PRIORITY_LABELS[p]}
@@ -109,10 +116,10 @@ export function TicketForm() {
             <div className="space-y-2">
               <Label>分类</Label>
               <Select value={categoryId} onValueChange={(v) => setCategoryId(v ?? "")}>
-                <SelectTrigger>
+                <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="选择分类 (可选)" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="rounded-xl">
                   {categories.map((c) => (
                     <SelectItem key={c.id} value={c.id}>
                       {c.name}
@@ -123,10 +130,11 @@ export function TicketForm() {
             </div>
           </div>
           <div className="flex justify-end gap-3 pt-2">
-            <Button type="button" variant="outline" onClick={() => router.back()}>
+            <Button type="button" variant="outline" className="rounded-xl" onClick={() => router.back()}>
               取消
             </Button>
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" className="rounded-xl" disabled={loading}>
+              <Send className="mr-2 h-4 w-4" />
               {loading ? "提交中..." : "提交工单"}
             </Button>
           </div>

@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
-import { DM_Sans, JetBrains_Mono } from "next/font/google"
+import { Nunito_Sans, JetBrains_Mono } from "next/font/google"
 import { SessionProvider } from "next-auth/react"
 import { ThemeProvider } from "@/components/shared/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
-const dmSans = DM_Sans({
+const nunitoSans = Nunito_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="zh-CN" suppressHydrationWarning className={`${nunitoSans.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-background font-sans antialiased">
         <SessionProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

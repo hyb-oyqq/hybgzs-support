@@ -28,14 +28,14 @@ export function TicketFilters({ search, onSearchChange, status, onStatusChange }
           placeholder="搜索工单..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="pl-9"
+          className="pl-9 rounded-xl focus:border-primary"
         />
       </div>
       <Select value={status} onValueChange={(v) => onStatusChange(v ?? "ALL")}>
-        <SelectTrigger className="w-full sm:w-40">
+        <SelectTrigger className="w-full sm:w-40 rounded-xl">
           <SelectValue placeholder="全部状态" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="rounded-xl">
           <SelectItem value="ALL">全部状态</SelectItem>
           {(Object.keys(STATUS_LABELS) as TicketStatus[]).map((s) => (
             <SelectItem key={s} value={s}>

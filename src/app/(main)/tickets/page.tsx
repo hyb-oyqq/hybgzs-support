@@ -47,11 +47,17 @@ export default function TicketsPage() {
   useEffect(() => { fetchTickets() }, [fetchTickets])
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold tracking-tight">我的工单</h1>
+        <div>
+          <h1 className="text-xl font-bold tracking-tight flex items-center gap-2.5">
+            <div className="w-1.5 h-5 rounded-full bg-primary" />
+            我的工单
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1 ml-4">查看和管理你提交的工单</p>
+        </div>
         <Link href="/tickets/new">
-          <Button>
+          <Button className="rounded-xl">
             <Plus className="mr-2 h-4 w-4" />
             新建工单
           </Button>
@@ -68,7 +74,7 @@ export default function TicketsPage() {
       {loading ? (
         <div className="space-y-2">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-20 bg-secondary/50 rounded-lg animate-pulse" />
+            <div key={i} className="h-20 bg-muted/50 rounded-xl animate-pulse" />
           ))}
         </div>
       ) : tickets.length === 0 ? (

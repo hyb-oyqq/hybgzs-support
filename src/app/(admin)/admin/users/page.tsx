@@ -55,8 +55,14 @@ export default function AdminUsersPage() {
   useEffect(() => { fetchUsers() }, [fetchUsers])
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-xl font-semibold tracking-tight">用户管理</h1>
+    <div className="space-y-5">
+      <div>
+        <h1 className="text-xl font-bold tracking-tight flex items-center gap-2.5">
+          <div className="w-1.5 h-5 rounded-full bg-primary" />
+          用户管理
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1 ml-4">管理系统用户和角色权限</p>
+      </div>
 
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
@@ -65,14 +71,14 @@ export default function AdminUsersPage() {
             placeholder="搜索用户..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-            className="pl-9"
+            className="pl-9 rounded-xl"
           />
         </div>
         <Select value={role} onValueChange={(v) => { setRole(v ?? "ALL"); setPage(1) }}>
-          <SelectTrigger className="w-full sm:w-36">
+          <SelectTrigger className="w-full sm:w-36 rounded-xl">
             <SelectValue placeholder="全部角色" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="rounded-xl">
             <SelectItem value="ALL">全部角色</SelectItem>
             {Object.entries(ROLE_LABELS).map(([key, label]) => (
               <SelectItem key={key} value={key}>{label}</SelectItem>
@@ -84,7 +90,7 @@ export default function AdminUsersPage() {
       {loading ? (
         <div className="space-y-2">
           {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="h-14 bg-secondary/50 rounded-lg animate-pulse" />
+            <div key={i} className="h-14 bg-muted/50 rounded-xl animate-pulse" />
           ))}
         </div>
       ) : users.length === 0 ? (

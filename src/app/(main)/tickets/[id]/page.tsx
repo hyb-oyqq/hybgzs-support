@@ -5,7 +5,7 @@ import { ReplyList } from "@/components/replies/reply-list"
 import { ReplyForm } from "@/components/replies/reply-form"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
 export default async function TicketPage({ params }: { params: Promise<{ id: string }> }) {
@@ -16,7 +16,7 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
   return (
     <div className="max-w-3xl mx-auto space-y-4">
       <Link href="/tickets">
-        <Button variant="ghost" size="sm">
+        <Button variant="ghost" size="sm" className="rounded-lg">
           <ArrowLeft className="mr-2 h-4 w-4" />
           返回工单列表
         </Button>
@@ -24,9 +24,12 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
 
       <TicketDetail ticket={ticket} />
 
-      <Card>
+      <Card className="rounded-xl">
         <CardHeader>
-          <CardTitle className="text-base">对话 ({ticket.replies.length})</CardTitle>
+          <CardTitle className="text-base flex items-center gap-2.5">
+            <MessageCircle className="h-4 w-4 text-primary" />
+            对话 ({ticket.replies.length})
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <ReplyList replies={ticket.replies} />

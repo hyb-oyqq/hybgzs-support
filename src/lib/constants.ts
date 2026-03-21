@@ -8,10 +8,10 @@ export const STATUS_LABELS: Record<TicketStatus, string> = {
 }
 
 export const STATUS_COLORS: Record<TicketStatus, { light: string; dark: string; bg: string }> = {
-  OPEN: { light: "#C2830A", dark: "#D4990F", bg: "bg-amber-500/10 text-amber-700 dark:text-amber-400" },
-  IN_PROGRESS: { light: "#2B7CC9", dark: "#4A9AE1", bg: "bg-blue-500/10 text-blue-700 dark:text-blue-400" },
-  RESOLVED: { light: "#1A8A5C", dark: "#22A870", bg: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400" },
-  CLOSED: { light: "#6B6F76", dark: "#8A8B8E", bg: "bg-gray-500/10 text-gray-600 dark:text-gray-400" },
+  OPEN: { light: "#D97706", dark: "#F59E0B", bg: "bg-amber-100/80 text-amber-800 dark:bg-amber-500/15 dark:text-amber-300" },
+  IN_PROGRESS: { light: "#3A9E95", dark: "#5CC4BA", bg: "bg-teal-100/80 text-teal-800 dark:bg-teal-500/15 dark:text-teal-300" },
+  RESOLVED: { light: "#4CAF82", dark: "#6FCF9F", bg: "bg-emerald-100/80 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-300" },
+  CLOSED: { light: "#8B7E74", dark: "#A89E96", bg: "bg-stone-100/80 text-stone-700 dark:bg-stone-500/15 dark:text-stone-400" },
 }
 
 export const PRIORITY_LABELS: Record<Priority, string> = {
@@ -22,10 +22,10 @@ export const PRIORITY_LABELS: Record<Priority, string> = {
 }
 
 export const PRIORITY_COLORS: Record<Priority, { light: string; dark: string; bg: string }> = {
-  LOW: { light: "#6B6F76", dark: "#8A8B8E", bg: "bg-gray-500/10 text-gray-600 dark:text-gray-400" },
-  MEDIUM: { light: "#C2830A", dark: "#D4990F", bg: "bg-amber-500/10 text-amber-700 dark:text-amber-400" },
-  HIGH: { light: "#D46422", dark: "#E57A35", bg: "bg-orange-500/10 text-orange-700 dark:text-orange-400" },
-  URGENT: { light: "#C93535", dark: "#E04545", bg: "bg-red-500/10 text-red-700 dark:text-red-400" },
+  LOW: { light: "#8B7E74", dark: "#A89E96", bg: "bg-stone-100/80 text-stone-700 dark:bg-stone-500/15 dark:text-stone-400" },
+  MEDIUM: { light: "#D4990F", dark: "#E8B54A", bg: "bg-amber-100/80 text-amber-800 dark:bg-amber-500/15 dark:text-amber-300" },
+  HIGH: { light: "#E08850", dark: "#F0A070", bg: "bg-orange-100/80 text-orange-800 dark:bg-orange-500/15 dark:text-orange-300" },
+  URGENT: { light: "#DC4545", dark: "#F06060", bg: "bg-red-100/80 text-red-800 dark:bg-red-500/15 dark:text-red-300" },
 }
 
 export const ROLE_LABELS: Record<string, string> = {

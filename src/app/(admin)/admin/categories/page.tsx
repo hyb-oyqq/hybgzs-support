@@ -52,10 +52,16 @@ export default function AdminCategoriesPage() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold tracking-tight">分类管理</h1>
-        <Button onClick={() => { setShowForm(true); setEditing(null) }}>
+        <div>
+          <h1 className="text-xl font-bold tracking-tight flex items-center gap-2.5">
+            <div className="w-1.5 h-5 rounded-full bg-primary" />
+            分类管理
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1 ml-4">创建和管理工单分类</p>
+        </div>
+        <Button className="rounded-xl" onClick={() => { setShowForm(true); setEditing(null) }}>
           <Plus className="mr-2 h-4 w-4" />
           新建分类
         </Button>
@@ -73,16 +79,16 @@ export default function AdminCategoriesPage() {
       ) : (
         <div className="grid gap-2">
           {categories.map((cat) => (
-            <Card key={cat.id} className={cat.isActive ? "" : "opacity-60"}>
+            <Card key={cat.id} className={`rounded-xl ${cat.isActive ? "" : "opacity-60"}`}>
               <CardContent className="p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   {cat.color && (
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: cat.color }} />
+                    <div className="w-3.5 h-3.5 rounded-full ring-2 ring-offset-2 ring-offset-card" style={{ backgroundColor: cat.color, boxShadow: `0 0 0 2px ${cat.color}20` }} />
                   )}
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium">{cat.name}</span>
-                      <Badge variant="secondary" className="text-[10px]">
+                      <span className="text-sm font-semibold">{cat.name}</span>
+                      <Badge variant="secondary" className={`text-[10px] px-1.5 py-0 ${cat.isActive ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-400" : "bg-stone-100 text-stone-600 dark:bg-stone-500/15 dark:text-stone-400"}`}>
                         {cat.isActive ? "启用" : "停用"}
                       </Badge>
                     </div>
@@ -95,7 +101,7 @@ export default function AdminCategoriesPage() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8"
+                    className="h-8 w-8 rounded-lg"
                     onClick={() => { setEditing(cat); setShowForm(false) }}
                   >
                     <Pencil className="h-3.5 w-3.5" />
@@ -103,6 +109,7 @@ export default function AdminCategoriesPage() {
                   <Button
                     variant="outline"
                     size="sm"
+                    className="rounded-lg"
                     onClick={() => setToggleConfirm(cat)}
                   >
                     {cat.isActive ? "停用" : "启用"}

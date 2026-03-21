@@ -1,7 +1,7 @@
 "use client"
 
 import { useSession } from "next-auth/react"
-import { Menu } from "lucide-react"
+import { Menu, Headset } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { AdminSidebar } from "@/components/admin/admin-sidebar"
@@ -22,7 +22,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-50 h-14 border-b bg-background/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 h-14 border-b bg-background/80 backdrop-blur-md">
         <div className="h-full px-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Sheet>
@@ -34,7 +34,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <AdminSidebar />
               </SheetContent>
             </Sheet>
-            <Link href="/admin" className="font-semibold text-sm tracking-tight">
+            <Link href="/admin" className="flex items-center gap-2.5 font-bold text-sm tracking-tight">
+              <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
+                <Headset className="h-3.5 w-3.5 text-primary-foreground" />
+              </div>
               黑与白支持 &middot; 管理
             </Link>
           </div>

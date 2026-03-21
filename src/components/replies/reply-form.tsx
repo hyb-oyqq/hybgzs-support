@@ -34,9 +34,10 @@ export function ReplyForm({ ticketId }: { ticketId: string }) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         rows={3}
+        className="rounded-xl focus:border-primary"
       />
       <div className="flex justify-end">
-        <Button type="submit" size="sm" disabled={loading || !content.trim()}>
+        <Button type="submit" size="sm" className="rounded-lg" disabled={loading || !content.trim()}>
           <Send className="mr-2 h-3.5 w-3.5" />
           {loading ? "发送中..." : "发送回复"}
         </Button>
